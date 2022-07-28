@@ -6,8 +6,9 @@
   li {
     text-align: center;
     list-style: none;
-    line-height: 50px;
+    line-height: 100px;
     margin-top: 0px;
+    font-size: 20px;
   }
 img {
   display: block;
@@ -15,5 +16,24 @@ img {
   margin-right: auto;
   width: 80%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1 {
+  text-align: center;
+}
+.photo {
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 0px 0 rgba(0, 0, 0, 0.0);
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 20%;
+}
+.ii {
+  width: 100%;
+}
+.tt {
+  position:absolute;
+  right:45%;
+  bottom: 40%;
 }
 </style>
