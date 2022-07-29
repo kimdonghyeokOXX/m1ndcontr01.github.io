@@ -1,5 +1,6 @@
 <style>
   a {
+    text-align: center;
     color:black;
     letter-spacing: 5px;
   }
@@ -15,34 +16,23 @@
     margin-right: auto;
 
   }
-  ul {
-    color: black;
-  }
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
 h1 {
-  text-align: center;
+  text-align:center;
   letter-spacing: 3px;
+  font-size: 20px;
 }
 div {
-  text-align: center;
+  text-align:center;
   font-size: 15px;
-  margin-right: 30%;
-  letter-spacing: 5px;
-
+}
+img {
+  background-position: center;
+  width: 500px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .aa{
   text-decoration: none;
   color: black;
-}
-.ii {
-  background: url(img.jpg) no-repeat center fixed;
-   background-size: cover;
 }
 .tt {
   text-align: center;
