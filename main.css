@@ -26,6 +26,13 @@ h1 {
   text-align: center;
   letter-spacing: 3px;
 }
+div {
+  text-align: center;
+  font-size: 15px;
+  margin-right: 29%;
+  letter-spacing: 5px;
+
+}
 .aa{
   text-decoration: none;
   color: black;
@@ -35,10 +42,9 @@ h1 {
    background-size: cover;
 }
 .tt {
-  position:absolute;
   text-align: center;
   line-height: 100px;
-  margin-top: 0px;
+  margin-top: 130px;
   font-size: 20px;
   color: black;
 }
