@@ -1,45 +1,30 @@
-<style>
-  a {
-    text-align: center;
-    color:black;
-    letter-spacing: 5px;
-  }
-  li {
-    text-align: center;
-    list-style: none;
-    line-height: 40px;
-    margin-top: 0px;
-    font-size: 10px;
-    letter-spacing: 5px;
-    color: black;
-    margin-left: auto;
-    margin-right: auto;
-
-  }
-h1 {
-  text-align:center;
-  letter-spacing: 3px;
-  font-size: 20px;
+#h1, #body-div {
+  color: black;
+  text-align: center;
+  text-decoration: none;
 }
-div {
-  text-align:center;
-  font-size: 15px;
+#body-div {
+  list-style: none;
+  letter-spacing: 5px;
+}
+#body-a {
+  list-style: none;
+  color: black;
+  line-height: 50px;
+}
+.h1div {
+  text-align: center;
+  color: black;
 }
 img {
-  background-position: center;
-  width: 400px;
+  display: block;
   height: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 100%;
 }
-.aa{
-  text-decoration: none;
-  color: black;
-}
-.tt {
-  text-align: center;
-  line-height: 100px;
-  margin-top: 130px;
+#top {
   font-size: 20px;
   color: black;
+  position: fixed;
+  bottom: 50px;
+  right: 5px;
 }
-</style>
