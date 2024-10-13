@@ -8,6 +8,12 @@
   list-style: none;
   letter-spacing: 5px;
 }
+#h3 {
+  text-align: center;
+  position: sticky;
+  top: 50%;
+  left: 50%;
+}
 #body-div-index {
   text-align: center;
   position: sticky;
