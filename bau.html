@@ -5,10 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no,maximum-scale=1.0, minimum-scale=1.0">
     <link href="main.css" rel="stylesheet">
     <title>PET - Tibbers__s</title>
+    <style>
+      /* 버튼 스타일 */
+      #top {
+          position: fixed; /* 화면에 고정 */
+          bottom: 20px; /* 하단에서 20px 위 */
+          right: 20px; /* 오른쪽에서 20px */
+          background-color: white; /* 버튼 배경색 */
+          color: black; /* 글자색 */
+          padding: 10px 15px; /* 패딩 */
+          border: none; /* 테두리 없음 */
+          border-radius: 5px; /* 모서리 둥글게 */
+          text-decoration: none; /* 밑줄 없음 */
+          font-size: 16px; /* 글자 크기 */
+          transition: background-color 0.3s; /* 배경색 변화 애니메이션 */
+      }
+
+      #top:hover {
+          background-color: #0056b3; /* 호버 시 배경색 변화 */
+      }
+
+      #body-div {
+          list-style-type: none; /* 리스트 스타일 제거 */
+          padding: 0; /* 패딩 제거 */
+      }
+
+      #body-div li {
+          display: inline; /* 리스트 항목을 가로로 나열 */
+          margin: 0 10px; /* 리스트 항목 간격 */
+      }
+
+      #img img {
+          max-width: 100%; /* 이미지가 화면에 맞게 조정 */
+          height: auto; /* 비율 유지 */
+          display: block; /* 블록 요소로 설정 */
+          margin: 10px auto; /* 중앙 정렬 */
+      }
+  </style>
+
   </head>
   <body style="text-align:center;">
 
-    <a href="ls.html" id="top">TOP</a>
+    <a href="#" id="top">TOP</a>
 
     <div id="body-div">
       <li><a href="index.html" id="body-a">MAIN</a></li>
@@ -42,6 +80,15 @@
     <img src="bau23.png">
     <img src="bau24.png">
 </div>
-
+<script>
+  // 부드러운 스크롤 기능 추가
+  document.getElementById('top').addEventListener('click', function(event) {
+      event.preventDefault(); // 기본 동작 방지
+      window.scrollTo({
+          top: 0, // 스크롤할 위치
+          behavior: 'smooth' // 부드러운 스크롤
+      });
+  });
+</script>
   </body>
 </html>
