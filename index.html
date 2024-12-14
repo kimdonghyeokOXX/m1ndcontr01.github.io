@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
     <title>Tibbers__s</title>
-
+    <link rel="icon" type="image/png" href="/png/logo.png">
     <link href="main.css" rel="stylesheet">
     <style>
         body {
@@ -59,6 +59,10 @@
 
         #body-div-index {
             padding: 0; /* 패딩 제거 */
+            list-style: none; /* 리스트 스타일 제거 */
+            display: flex; /* 플렉스 박스 사용 */
+            flex-wrap: wrap; /* 줄 바꿈 허용 */
+            justify-content: center; /* 중앙 정렬 */
         }
 
         #body-div-index li {
@@ -85,27 +89,6 @@
                 margin: 10px 0; /* 카드 간격 조정 */
             }
         }
-
-        #home-icon {
-            position: fixed; /* 화면에 고정 */
-            bottom: 20px; /* 하단에서 20px 위 */
-            right: 20px; /* 오른쪽에서 20px */
-            background-color: white; /* 배경색 */
-            border-radius: 50%; /* 둥근 모양 */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
-            padding: 10px; /* 패딩 */
-            transition: background-color 0.3s; /* 배경색 변화 애니메이션 */
-        }
-
-        #home-icon img {
-            width: 30px; /* 아이콘 크기 */
-            height: auto; /* 비율 유지 */
-        }
-
-        #home-icon:hover {
-            background-color: #f0f0f0; /* 호버 시 배경색 변화 */
-        }
-
     </style>
 </head>
 
@@ -124,10 +107,6 @@
             <li><a href="https://www.instagram.com/jakedongkenzie/" id="body-a" target="_blank">INSTAGRAM</a></li>
         </ul>
     </div>
-    
-<!-- 홈페이지 아이콘 추가 -->
-    <a href="index.html" id="home-icon" title="홈페이지로 이동">
-        <img src="home-icon.png" alt="홈페이지 아이콘" />
-    </a>
+
 </body>
 </html>
