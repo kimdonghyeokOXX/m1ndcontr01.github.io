@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
     <title>Tibbers__s</title>
+
     <link href="main.css" rel="stylesheet">
     <style>
         body {
@@ -84,13 +85,33 @@
                 margin: 10px 0; /* 카드 간격 조정 */
             }
         }
+
+        #home-icon {
+            position: fixed; /* 화면에 고정 */
+            bottom: 20px; /* 하단에서 20px 위 */
+            right: 20px; /* 오른쪽에서 20px */
+            background-color: white; /* 배경색 */
+            border-radius: 50%; /* 둥근 모양 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+            padding: 10px; /* 패딩 */
+            transition: background-color 0.3s; /* 배경색 변화 애니메이션 */
+        }
+
+        #home-icon img {
+            width: 30px; /* 아이콘 크기 */
+            height: auto; /* 비율 유지 */
+        }
+
+        #home-icon:hover {
+            background-color: #f0f0f0; /* 호버 시 배경색 변화 */
+        }
+
     </style>
 </head>
 
 <body>
 
     <div class="h1div">
-        <img src="logo.png" alt="로고" class="logo"> <!-- 로고 이미지 추가 -->
         <h1><a href="index.html" class="h1div">𝕿𝕴𝕭𝕭𝕰𝕽𝕾__𝕾 𝕻𝕳𝕺𝕿𝕺𝕲𝕽𝕬𝕻𝕳𝖄</a></h1>
     </div>
 
@@ -103,6 +124,10 @@
             <li><a href="https://www.instagram.com/jakedongkenzie/" id="body-a" target="_blank">INSTAGRAM</a></li>
         </ul>
     </div>
-
+    
+<!-- 홈페이지 아이콘 추가 -->
+    <a href="index.html" id="home-icon" title="홈페이지로 이동">
+        <img src="home-icon.png" alt="홈페이지 아이콘" />
+    </a>
 </body>
 </html>
