@@ -7,11 +7,14 @@
     <link href="main.css" rel="stylesheet">
     <style>
         body {
+            background-image: url('your-background-image.jpg'); /* 배경 이미지 추가 */
+            background-size: cover; /* 배경 이미지 크기 조정 */
+            background-position: center; /* 배경 이미지 위치 조정 */
             font-family: Arial, sans-serif; /* 기본 글꼴 설정 */
             text-align: center; /* 중앙 정렬 */
             margin: 0; /* 기본 마진 제거 */
             padding: 20px; /* 패딩 추가 */
-            background-color: #f9f9f9; /* 배경색 설정 */
+            color: white; /* 텍스트 색상 변경 */
         }
 
         .h1div {
@@ -20,13 +23,15 @@
 
         h1 {
             font-size: 2.5em; /* 제목 크기 설정 */
-            color: #333; /* 제목 색상 설정 */
+            color: #fff; /* 제목 색상 설정 */
         }
 
         a {
             text-decoration: none; /* 링크 밑줄 제거 */
             color: #007bff; /* 링크 색상 설정 */
             font-size: 1.2em; /* 링크 크기 설정 */
+            position: relative; /* 위치 설정 */
+            overflow: hidden; /* 넘치는 부분 숨기기 */
             transition: color 0.3s; /* 색상 변화 애니메이션 */
         }
 
@@ -34,13 +39,49 @@
             color: #0056b3; /* 호버 시 색상 변화 */
         }
 
+        a::after {
+            content: ''; /* 가상 요소 생성 */
+            position: absolute; /* 절대 위치 */
+            left: 50%; /* 중앙 정렬 */
+            bottom: 0; /* 아래쪽에 위치 */
+            width: 100%; /* 전체 너비 */
+            height: 2px; /* 두께 */
+            background: #007bff; /* 색상 */
+            transform: translateX(-50%) scaleX(0); /* 초기 상태 */
+            transition: transform 0.3s; /* 애니메이션 효과 */
+        }
+
+        a:hover::after {
+            transform: translateX(-50%) scaleX(1); /* 호버 시 애니메이션 */
+        }
+
         #body-div-index {
-            list-style-type: none; /* 리스트 스타일 제거 */
             padding: 0; /* 패딩 제거 */
         }
 
         #body-div-index li {
-            margin: 15px 0; /* 리스트 항목 간격 */
+            display: inline-block; /* 카드 형태로 나열 */
+            margin: 15px; /* 카드 간격 */
+            padding: 20px; /* 카드 내부 여백 */
+            background-color: rgba(255, 255, 255, 0.8); /* 카드 배경색 */
+            border-radius: 10px; /* 둥근 모서리 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+            transition: transform 0.3s; /* 애니메이션 효과 */
+        }
+
+        #body-div-index li:hover {
+            transform: scale(1.05); /* 호버 시 확대 효과 */
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* 제목 크기 조정 */
+            }
+
+            #body-div-index li {
+                width: 100%; /* 카드 너비를 100%로 설정 */
+                margin: 10px 0; /* 카드 간격 조정 */
+            }
         }
     </style>
 </head>
