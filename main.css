@@ -51,3 +51,44 @@ img {
   padding: 0px; margin: 0px;
   width: 100%; height: 500px; overflow:  hidden;margin: 0px auto ; position: relative;
 }
+
+
+#top {
+  position: fixed; /* 화면에 고정 */
+  bottom: 20px; /* 하단에서 20px 위 */
+  right: 20px; /* 오른쪽에서 20px */
+  background-color: white; /* 버튼 배경색 */
+  color: black; /* 글자색 */
+  padding: 10px 15px; /* 패딩 */
+  border: none; /* 테두리 없음 */
+  border-radius: 5px; /* 모서리 둥글게 */
+  text-decoration: none; /* 밑줄 없음 */
+  font-size: 16px; /* 글자 크기 */
+  transition: background-color 0.3s; /* 배경색 변화 애니메이션 */
+}
+
+#top:hover {
+  background-color: #0056b3; /* 호버 시 배경색 변화 */
+}
+
+#body-div {
+  list-style-type: none; /* 리스트 스타일 제거 */
+  padding: 0; /* 패딩 제거 */
+}
+
+#body-div li {
+  display: inline; /* 리스트 항목을 가로로 나열 */
+  margin: 0 10px; /* 리스트 항목 간격 */
+}
+
+#img img {
+  max-width: 100%; /* 이미지가 화면에 맞게 조정 */
+  height: auto; /* 비율 유지 */
+  display: block; /* 블록 요소로 설정 */
+  margin: 10px auto; /* 중앙 정렬 */
+}
+
+img.logo {
+  width: 50px; /* 로고 크기 설정 */
+  height: auto; /* 비율 유지 */
+}
