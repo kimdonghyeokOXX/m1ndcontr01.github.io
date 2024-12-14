@@ -82,5 +82,16 @@ maximum-scale=1.0, minimum-scale=1.0">
     <img src="center5.jpg" alt="">
 </div>
 
+<script>
+  // 부드러운 스크롤 기능 추가
+  document.getElementById('top').addEventListener('click', function(event) {
+      event.preventDefault(); // 기본 동작 방지
+      window.scrollTo({
+          top: 0, // 스크롤할 위치
+          behavior: 'smooth' // 부드러운 스크롤
+      });
+  });
+</script>
+
   </body>
 </html>
