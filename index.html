@@ -7,9 +7,7 @@
     <link href="main.css" rel="stylesheet">
     <style>
         body {
-            background-image: url('your-background-image.jpg'); /* 배경 이미지 추가 */
-            background-size: cover; /* 배경 이미지 크기 조정 */
-            background-position: center; /* 배경 이미지 위치 조정 */
+            background-color: #282c34; /* 배경 색상 설정 */
             font-family: Arial, sans-serif; /* 기본 글꼴 설정 */
             text-align: center; /* 중앙 정렬 */
             margin: 0; /* 기본 마진 제거 */
@@ -18,12 +16,13 @@
         }
 
         .h1div {
-            margin-bottom: 20px; /* 제목과 다른 요소 간의 간격 */
+            margin-bottom: 40px; /* 제목과 다른 요소 간의 간격 조정 */
         }
 
         h1 {
-            font-size: 2.5em; /* 제목 크기 설정 */
+            font-size: 3em; /* 제목 크기 설정 */
             color: #fff; /* 제목 색상 설정 */
+            line-height: 1.2; /* 줄 높이 조정 */
         }
 
         a {
@@ -33,6 +32,8 @@
             position: relative; /* 위치 설정 */
             overflow: hidden; /* 넘치는 부분 숨기기 */
             transition: color 0.3s; /* 색상 변화 애니메이션 */
+            display: inline-block; /* 블록 요소로 설정 */
+            margin-top: 10px; /* 위쪽 여백 추가 */
         }
 
         a:hover {
@@ -43,10 +44,10 @@
             content: ''; /* 가상 요소 생성 */
             position: absolute; /* 절대 위치 */
             left: 50%; /* 중앙 정렬 */
-            bottom: 0; /* 아래쪽에 위치 */
+            bottom: -5px; /* 아래쪽에 위치 */
             width: 100%; /* 전체 너비 */
             height: 2px; /* 두께 */
-            background: #007bff; /* 색상 */
+            background: black; /* 색상 변경 */
             transform: translateX(-50%) scaleX(0); /* 초기 상태 */
             transition: transform 0.3s; /* 애니메이션 효과 */
         }
@@ -75,7 +76,7 @@
 
         @media (max-width: 600px) {
             h1 {
-                font-size: 2em; /* 제목 크기 조정 */
+                font-size: 2.5em; /* 모바일에서 제목 크기 조정 */
             }
 
             #body-div-index li {
