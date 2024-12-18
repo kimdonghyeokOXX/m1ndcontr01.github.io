@@ -4,7 +4,7 @@ body {
     text-align: center; /* 중앙 정렬 */
     margin: 0; /* 기본 마진 제거 */
     padding: 20px; /* 패딩 추가 */
-    color: white; /* 텍스트 색상 변경 */
+    color: black; /* 텍스트 색상 변경 (흰색에서 검정색으로 변경) */
     display: flex; /* 플렉스 박스 사용 */
     flex-direction: column; /* 세로 방향으로 정렬 */
     align-items: center; /* 중앙 정렬 */
@@ -16,7 +16,7 @@ body {
 
 h1 {
     font-size: 3em; /* 제목 크기 설정 */
-    color: #fff; /* 제목 색상 설정 */
+    color: #333; /* 제목 색상 설정 (흰색에서 어두운 색으로 변경) */
     line-height: 1.2; /* 줄 높이 조정 */
 }
 
@@ -86,7 +86,31 @@ a:hover::after {
     }
 
     #body-div-index li {
-        width: 100%; /* 카드 너비를 100%로 설정 */
-        margin: 10px 0; /* 카드 간격 조정 */
+        width: 90%; /* 카드 너비를 90%로 설정 */
+        margin: 10px auto; /* 카드 간격 조정 */
+    }
+
+    #body-div {
+        list-style-type: none; /* 리스트 스타일 제거 */
+        padding: 0; /* 패딩 제거 */
+        display: flex; /* 플렉스 박스 사용 */
+        justify-content: center; /* 중앙 정렬 */
+        margin: 20px 0; /* 위아래 여백 추가 */
+    }
+
+    #body-div li {
+        margin: 0 10px; /* 리스트 항목 간격 */
+    }
+
+    #img {
+        padding: 0 20px; /* 양 옆에 20px의 패딩 추가 */
+        background-color: white; /* 배경색을 흰색으로 설정 */
+    }
+
+    #img img {
+        max-width: 100%; /* 이미지가 화면에 맞게 조정 */
+        height: auto; /* 비율 유지 */
+        display: block; /* 블록 요소로 설정 */
+        margin: 10px auto; /* 중앙 정렬 */
     }
 }
