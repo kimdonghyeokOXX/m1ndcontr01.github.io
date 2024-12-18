@@ -10,7 +10,7 @@
     <style>
         body {
             text-align: center;
-            background: linear-gradient(135deg, #f8bff5, #01ff6b);
+            background: linear-gradient(135deg, #ff6b6b, #f7d94c);
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -18,6 +18,83 @@
             align-items: center;
             overflow: hidden;
             font-family: 'Noto Sans', sans-serif;
+            transition: background-color 0.5s; /* 배경색 전환 애니메이션 */
+        }
+
+        /* 버튼 스타일 */
+        #top {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            background-color: white;
+            color: black;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        #top:hover {
+            background-color: #0056b3;
+        }
+
+        #body-div {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        #body-div li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        #center-text {
+            font-size: 48px;
+            color: white;
+            animation: fadeIn 2s ease-in-out;
+            margin-top: 20px; /* 텍스트와 리스트 간격 */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 지뢰찾기 스타일 */
+        #minesweeper {
+            display: grid;
+            grid-template-columns: repeat(10, 40px);
+            grid-gap: 5px;
+            margin-top: 20px;
+        }
+
+        .cell {
+            width: 40px;
+            height: 40px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 20px;
+            border: 1px solid #aaa;
+        }
+
+        .cell.revealed {
+            background-color: #fff;
+        }
+
+        .cell.mine {
+            background-color: red;
         }
     </style>
 </head>
@@ -32,7 +109,141 @@
         <li><a href="bau.html" id="body-a">PET</a></li>
     </ul>
 
+    <div id="center-text">
+        MY EVERYTHING.
+    </div>
 
-  
+    <div id="minesweeper"></div>
+
+    <script>
+        // 부드러운 스크롤 기능 추가
+        document.getElementById('top').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 랜덤 배경색 변경 기능 추가
+        document.body.addEventListener('click', function() {
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        });
+
+        // 지뢰찾기 게임 구현
+        const rows = 10;
+        const cols = 10;
+        const mineCount = 10;
+        const board = [];
+        const minesweeper = document.getElementById('minesweeper');
+
+        // 보드 초기화
+        function initBoard() {
+            for (let r = 0; r < rows; r++) {
+                board[r] = [];
+                for (let c = 0; c < cols; c++) {
+                    board[r][c] = { mine: false, revealed: false, adjacentMines: 0 };
+                }
+            }
+            placeMines();
+            calculateAdjacentMines();
+            renderBoard();
+        }
+
+        // 지뢰 배치
+        function placeMines() {
+            let placedMines = 0;
+            while (placedMines < mineCount) {
+                const r = Math.floor(Math.random() * rows);
+                const c = Math.floor(Math.random() * cols);
+                if (!board[r][c].mine) {
+                    board[r][c].mine = true;
+                    placedMines++;
+                }
+            }
+        }
+
+        // 인접한 지뢰 수 계산
+        function calculateAdjacentMines() {
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    if (board[r][c].mine) {
+                        for (let i = -1; i <= 1; i++) {
+                            for (let j = -1; j <= 1; j++) {
+                                const newRow = r + i;
+                                const newCol = c + j;
+                                if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
+                                    board[newRow][newCol].adjacentMines++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 보드 렌더링
+        function renderBoard() {
+            minesweeper.innerHTML = '';
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+                    cell.dataset.row = r;
+                    cell.dataset.col = c;
+                    cell.addEventListener('click', revealCell);
+                    minesweeper.appendChild(cell);
+                }
+            }
+        }
+
+        // 셀 클릭 시 처리
+        function revealCell(event) {
+            const r = event.target.dataset.row;
+            const c = event.target.dataset.col;
+            if (board[r][c].revealed) return;
+
+            board[r][c].revealed = true;
+            event.target.classList.add('revealed');
+
+            if (board[r][c].mine) {
+                event.target.classList.add('mine');
+                alert('Game Over! You hit a mine!');
+                revealAllMines();
+            } else {
+                const adjacentMines = board[r][c].adjacentMines;
+                if (adjacentMines > 0) {
+                    event.target.textContent = adjacentMines;
+                } else {
+                    // 인접한 셀도 자동으로 열기
+                    for (let i = -1; i <= 1; i++) {
+                        for (let j = -1; j <= 1; j++) {
+                            const newRow = parseInt(r) + i;
+                            const newCol = parseInt(c) + j;
+                            if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
+                                revealCell({ target: document.querySelector(`.cell[data-row="${newRow}"][data-col="${newCol}"]`) });
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 모든 지뢰 공개
+        function revealAllMines() {
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    if (board[r][c].mine) {
+                        const cell = document.querySelector(`.cell[data-row="${r}"][data-col="${c}"]`);
+                        cell.classList.add('mine');
+                    }
+                }
+            }
+        }
+
+        // 게임 초기화
+        initBoard();
+    </script>
 </body>
 </html>
