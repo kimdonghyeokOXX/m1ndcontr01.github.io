@@ -1,6 +1,6 @@
 body {
     background-color: gainsboro; /* 배경 색상 설정 */
-    font-family: 'Avenir', 'Helvetica Neue', Arial, sans-serif; /* 기본 글꼴 설정 */
+    font-family: 'Avenir', 'Helvetica Neue'; /* 기본 글꼴 설정 */
     text-align: center; /* 중앙 정렬 */
     margin: 0; /* 기본 마진 제거 */
     padding: 20px; /* 패딩 추가 */
