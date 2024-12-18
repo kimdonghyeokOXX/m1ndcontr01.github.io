@@ -22,7 +22,7 @@ h1 {
 
 a {
     text-decoration: none; /* 링크 밑줄 제거 */
-    color: #007bff; /* 링크 색상 설정 */
+    color: black; /* 링크 색상 설정 */
     font-size: 1.2em; /* 링크 크기 설정 */
     position: relative; /* 위치 설정 */
     overflow: hidden; /* 넘치는 부분 숨기기 */
