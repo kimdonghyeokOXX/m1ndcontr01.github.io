@@ -22,10 +22,9 @@
         }
 
         /* 버튼 스타일 */
-        #top {
+        #top, #reset {
             position: fixed;
             bottom: 50px;
-            right: 50px;
             background-color: white;
             color: black;
             padding: 10px 15px;
@@ -36,7 +35,15 @@
             transition: background-color 0.3s;
         }
 
-        #top:hover {
+        #top {
+            right: 110px; /* 리셋 버튼과 간격 조정 */
+        }
+
+        #reset {
+            right: 50px;
+        }
+
+        #top:hover, #reset:hover {
             background-color: #0056b3;
         }
 
@@ -100,6 +107,7 @@
 </head>
 <body>
 
+    <button id="reset">RESET</button>
     <a href="#" id="top">TOP</a>
 
     <ul id="body-div">
@@ -109,9 +117,7 @@
         <li><a href="bau.html" id="body-a">PET</a></li>
     </ul>
 
-    <div id="center-text">
-        MY EVERYTHING.
-    </div>
+    <div id="center-text"></div>
 
     <div id="minesweeper"></div>
 
@@ -137,9 +143,11 @@
         const mineCount = 10;
         const board = [];
         const minesweeper = document.getElementById('minesweeper');
+        const centerText = document.getElementById('center-text');
 
         // 보드 초기화
         function initBoard() {
+            centerText.textContent = ''; // 메시지 초기화
             for (let r = 0; r < rows; r++) {
                 board[r] = [];
                 for (let c = 0; c < cols; c++) {
@@ -209,7 +217,7 @@
 
             if (board[r][c].mine) {
                 event.target.classList.add('mine');
-                alert('Game Over! You hit a mine!');
+                centerText.textContent = '게임 실패! 지뢰를 밟으셨습니다다!';
                 revealAllMines();
             } else {
                 const adjacentMines = board[r][c].adjacentMines;
@@ -228,6 +236,9 @@
                     }
                 }
             }
+
+            // 모든 셀을 확인하여 게임 승리 여부 확인
+            checkWinCondition();
         }
 
         // 모든 지뢰 공개
@@ -241,6 +252,24 @@
                 }
             }
         }
+
+        // 게임 승리 조건 확인
+        function checkWinCondition() {
+            let revealedCells = 0;
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    if (board[r][c].revealed) {
+                        revealedCells++;
+                    }
+                }
+            }
+            if (revealedCells === (rows * cols - mineCount)) {
+                centerText.textContent = '축하드립니다. 모든 지뢰를 찾았습니다.';
+            }
+        }
+
+        // 리셋 버튼 클릭 시 보드 초기화
+        document.getElementById('reset').addEventListener('click', initBoard);
 
         // 게임 초기화
         initBoard();
