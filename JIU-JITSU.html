@@ -19,58 +19,6 @@
             overflow: hidden;
             font-family: 'Noto Sans', sans-serif;
         }
-
-        /* 버튼 스타일 */
-        #top {
-            position: fixed;
-            bottom: 50px;
-            right: 50px;
-            background-color: white;
-            color: black;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        #top:hover {
-            background-color: #0056b3;
-        }
-
-        #body-div {
-            list-style-type: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-
-        #body-div li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        #center-text {
-            font-size: 48px;
-            color: white;
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* 유튜브 iframe 스타일 */
-        #youtube-player {
-            display: none; /* 기본적으로 숨김 */
-        }
     </style>
 </head>
 <body>
@@ -85,16 +33,6 @@
     </ul>
 
 
-    <script>
-        // 부드러운 스크롤 기능 추가
-        document.getElementById('top').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-    </script>
+  
 </body>
 </html>
