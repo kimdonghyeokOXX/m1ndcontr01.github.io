@@ -9,14 +9,30 @@
   <link href="mobile.css" rel="stylesheet">
 </head>
 <body>
-  <header class="mobile-header">
-    <h1><a href="index.html">𝕿𝕴𝕭𝕭𝕰𝕽𝕾__𝕾</a></h1>
-  </header>
+  <div class="mobile-wrapper">
+    <header class="mobile-header">
+      <h1><a href="index.html">𝕿𝕴𝕭𝕭𝕰𝕽𝕾__𝕾</a></h1>
+    
+    </header>
 
-  <main class="mobile-main">
-    <a class="mobile-card" href="ls.html">LIFESTYLE</a>
-    <a class="mobile-card" href="bjj.html">FITNESS</a>
-    <a class="mobile-card" href="bau.html">PET</a>
-  </main>
+    <main class="mobile-main">
+      <a class="mobile-card fade-up" href="ls.html">LIFESTYLE</a>
+      <a class="mobile-card fade-up" href="bjj.html">FITNESS</a>
+      <a class="mobile-card fade-up" href="bau.html">PET</a>
+    </main>
+  </div>
+
+  <script>
+    // 스크롤 애니메이션: fade-up 클래스가 뷰포트에 들어오면 클래스 추가
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>

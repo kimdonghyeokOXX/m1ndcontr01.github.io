@@ -1,12 +1,22 @@
-body {
+/* 전체 레이아웃 가운데 정렬 */
+body, html {
+  height: 100%;
   margin: 0;
   padding: 0;
   font-family: 'Noto Sans', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #f9f9f9;
   color: #222;
+}
+
+.mobile-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 수직 중앙 정렬 */
+  align-items: center;     /* 수평 중앙 정렬 */
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* 다크모드 지원 */
@@ -35,11 +45,9 @@ body {
   }
 }
 
-/* 헤더 */
+/* 헤더 스타일 */
 .mobile-header {
-  margin-top: 40px;
-  text-align: center;
-  padding: 0 20px;
+  margin-bottom: 40px;
 }
 
 .mobile-header h1 a {
@@ -55,28 +63,29 @@ body {
   margin-top: 8px;
 }
 
-/* 메인 콘텐츠 레이아웃 */
+/* 메인 */
 .mobile-main {
-  margin-top: 40px;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 30px;  /* 🔥 클릭 배너 간격을 넉넉히 띄움 */
-  padding: 0 20px 60px;
-  box-sizing: border-box;
+  gap: 30px; /* 배너 간격 */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
 }
 
-/* 클릭 배너 카드 */
+/* 배너 카드 */
 .mobile-card {
   background-color: #ffffff;
   padding: 25px 20px;
   border-radius: 14px;
-  text-align: center;
   font-size: 1.4rem;
   font-weight: 600;
   text-decoration: none;
   color: #222;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 320px;
   transition: background-color 0.3s, transform 0.2s;
 }
 
@@ -84,3 +93,8 @@ body {
   background-color: #f0f0f0;
   transform: scale(0.97);
 }
+
+/* 📦 스크롤 애니메이션: fade-up */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
