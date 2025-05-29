@@ -1,38 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Tibbers__s Mobile</title>
-  <link rel="icon" href="logo.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-  <link href="mobile.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tibbers__s</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="mobile-wrapper">
-    <header class="mobile-header">
-      <h1><a href="index.html">𝕿𝕴𝕭𝕭𝕰𝕽𝕾__𝕾</a></h1>
-    
-    </header>
+  <header>
+    <h1>TIBBERS__S</h1>
+  </header>
 
-    <main class="mobile-main">
-      <a class="mobile-card fade-up" href="ls.html">LIFESTYLE</a>
-      <a class="mobile-card fade-up" href="bjj.html">FITNESS</a>
-      <a class="mobile-card fade-up" href="bau.html">PET</a>
-    </main>
-  </div>
+  <main>
+    <section class="grid">
+      <a href="ls.html" class="card">
+        <div class="image lazy" data-src="lifestyle.jpg"></div>
+        <p>LIFESTYLE</p>
+      </a>
+      <a href="bjj.html" class="card">
+        <div class="image lazy" data-src="fitness.jpg"></div>
+        <p>FITNESS</p>
+      </a>
+      <a href="bau.html" class="card">
+        <div class="image lazy" data-src="pet.jpg"></div>
+        <p>PET</p>
+      </a>
+    </section>
+  </main>
 
   <script>
-    // 스크롤 애니메이션: fade-up 클래스가 뷰포트에 들어오면 클래스 추가
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
+    // Lazy loading + blur 효과
+    document.addEventListener("DOMContentLoaded", () => {
+      const lazyImages = document.querySelectorAll('.lazy');
+      lazyImages.forEach(img => {
+        const src = img.dataset.src;
+        if (!src) return;
+        const temp = new Image();
+        temp.src = src;
+        temp.onload = () => {
+          img.style.backgroundImage = `url('${src}')`;
+          img.classList.add('loaded');
+        };
       });
     });
-
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>

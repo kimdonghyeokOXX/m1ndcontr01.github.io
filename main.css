@@ -1,100 +1,83 @@
-/* 전체 레이아웃 가운데 정렬 */
-body, html {
-  height: 100%;
+/* 밝고 깔끔한 톤 */
+body {
   margin: 0;
   padding: 0;
-  font-family: 'Noto Sans', sans-serif;
-  background-color: #f9f9f9;
-  color: #222;
-}
-
-.mobile-wrapper {
-  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: #f9f9f9; /* 밝은 배경 */
+  color: #222; /* 진한 텍스트 */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* 수직 중앙 정렬 */
-  align-items: center;     /* 수평 중앙 정렬 */
+  align-items: center;
+}
+
+/* 헤더 */
+header {
+  padding: 30px 20px 20px;
   text-align: center;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin: 0;
+  color: #222; /* 어두운 텍스트 */
+}
+
+/* 메인 그리드 */
+.grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
   padding: 20px;
+  width: 100%;
+  max-width: 480px;
   box-sizing: border-box;
 }
 
-/* 다크모드 지원 */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #121212;
-    color: #eee;
-  }
-
-  .mobile-card {
-    background-color: #1f1f1f;
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  }
-
-  .mobile-card:active {
-    background-color: #333;
-  }
-
-  .mobile-header h1 a {
-    color: #fff;
-  }
-
-  .mobile-header p {
-    color: #ccc;
-  }
-}
-
-/* 헤더 스타일 */
-.mobile-header {
-  margin-bottom: 40px;
-}
-
-.mobile-header h1 a {
-  font-size: 1.8rem;
+/* 카드 스타일 */
+.card {
+  background: #fff; /* 밝은 카드 배경 */
+  border-radius: 16px;
+  overflow: hidden;
+  text-align: center;
   text-decoration: none;
-  color: #111;
-  font-weight: bold;
+  color: inherit;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 연한 그림자 */
+  transition: transform 0.3s ease;
 }
 
-.mobile-header p {
-  font-size: 1rem;
-  color: #666;
-  margin-top: 8px;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-/* 메인 */
-.mobile-main {
-  display: flex;
-  flex-direction: column;
-  gap: 30px; /* 배너 간격 */
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
+.card p {
+  padding: 15px;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
-/* 배너 카드 */
-.mobile-card {
-  background-color: #ffffff;
-  padding: 25px 20px;
-  border-radius: 14px;
-  font-size: 1.4rem;
-  font-weight: 600;
-  text-decoration: none;
-  color: #222;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  width: 100%;
-  max-width: 320px;
-  transition: background-color 0.3s, transform 0.2s;
+/* 이미지 영역 (Lazy + Blur 효과) */
+.image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px);
+  transition: filter 0.5s ease;
+  background-color: #ddd; /* 밝은 placeholder */
 }
 
-.mobile-card:active {
-  background-color: #f0f0f0;
-  transform: scale(0.97);
+.image.loaded {
+  filter: blur(0);
 }
 
-/* 📦 스크롤 애니메이션: fade-up */
-.fade-up {
-  opacity: 0;
-  transform: translateY(20px);
+/* 반응형 조정 */
+@media (min-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
