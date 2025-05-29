@@ -1,13 +1,38 @@
-/* 전체 레이아웃 */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Noto Sans', sans-serif;
-  background-color: #f9f9f9;
-  color: #222;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+/* 다크모드 지원 */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #eee;
+  }
+
+  .mobile-card {
+    background-color: #1f1f1f;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .mobile-card:active {
+    background-color: #333;
+  }
+
+  .mobile-header h1 a {
+    color: #fff;
+  }
+
+  .mobile-header p {
+    color: #ccc;
+  }
 }
 
 /* 헤더 */
@@ -30,30 +55,32 @@ body {
   margin-top: 8px;
 }
 
-/* 메인 영역 */
+/* 메인 콘텐츠 레이아웃 */
 .mobile-main {
   margin-top: 40px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 0 20px 40px;
+  gap: 30px;  /* 🔥 클릭 배너 간격을 넉넉히 띄움 */
+  padding: 0 20px 60px;
   box-sizing: border-box;
 }
 
-/* 카드 스타일 */
+/* 클릭 배너 카드 */
 .mobile-card {
   background-color: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
+  padding: 25px 20px;
+  border-radius: 14px;
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 600;
   text-decoration: none;
   color: #222;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .mobile-card:active {
   background-color: #f0f0f0;
+  transform: scale(0.97);
+}
