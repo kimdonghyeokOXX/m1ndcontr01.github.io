@@ -32,6 +32,7 @@ h1 {
   width: 100%;
   max-width: 480px;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
 /* 카드 스타일 */
