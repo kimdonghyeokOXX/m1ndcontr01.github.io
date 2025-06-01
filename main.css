@@ -33,6 +33,7 @@ h1 {
   max-width: 480px;
   box-sizing: border-box;
   margin: 0 auto;
+  text-align: center; /* 가운데 정렬 추가 */
 }
 
 /* 카드 스타일 */
@@ -45,6 +46,7 @@ h1 {
   color: inherit;
   cursor: pointer; /* 클릭 가능 느낌 */
   transition: opacity 0.2s ease;
+  text-align: center; /* 가운데 정렬 추가 */
 }
 
 .card:hover {
